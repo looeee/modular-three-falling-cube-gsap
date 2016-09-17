@@ -37,8 +37,8 @@ window.THREE.Math = _Math;
 import modularTHREE from 'modular-three';
 window.modularTHREE = modularTHREE;
 
-// import 'gsap/src/uncompressed/TimelineLite';
-// import 'gsap/src/uncompressed/easing/EasePack';
+import 'gsap/src/uncompressed/TimelineLite';
+import 'gsap/src/uncompressed/easing/EasePack';
 
 import Stats from 'three/examples/js/libs/stats.min';
 window.Stats = Stats;

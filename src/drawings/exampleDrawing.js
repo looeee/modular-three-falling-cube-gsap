@@ -13,7 +13,7 @@ const rendererSpec = {
   height: () => window.innerHeight,
   pixelRatio: window.devicePixelRatio,
   postprocessing: false,
-  useGSAP: false,
+  useGSAP: true,
   showStats: true,
 };
 
@@ -43,15 +43,32 @@ export class ExampleDrawing extends modularTHREE.Drawing {
 
   initObjects() {
     this.cube = new Cube();
+
+    //set the cube's initial position and rotation
+    this.cube.rotation.set(-2, 2, 0);
+    this.cube.position.set(0, 30, 0);
+
     this.scene.add(this.cube);
   }
 
   initCubeAnimation() {
-    const rotateCube = () => {
-      this.cube.rotation.x += 0.005;
-      this.cube.rotation.y += 0.01;
-    };
+    this.cubeTimeline = new TimelineLite();
 
-    this.addPerFrameFunction(rotateCube);
+    const cubeFallTween = TweenLite.to(this.cube.position, 3.5, {
+      y: -20,
+      ease: Bounce.easeOut,
+    });
+
+    const cubeRotateTween = TweenLite.to(this.cube.rotation, 3.5, {
+      x: 0,
+      y: 0,
+      ease: Sine.easeInOut,
+    });
+
+    this.cubeTimeline.add(cubeFallTween);
+
+    //add the rotation tween at time 0 so that falling and rotating
+    //happen simultaneously
+    this.cubeTimeline.add(cubeRotateTween, 0);
   }
 }
