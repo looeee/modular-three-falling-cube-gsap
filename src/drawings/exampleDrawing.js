@@ -39,6 +39,7 @@ export class ExampleDrawing extends modularTHREE.Drawing {
   init() {
     this.initObjects();
     this.initCubeAnimation();
+    this.initCubeGUI();
   }
 
   initObjects() {
@@ -52,7 +53,7 @@ export class ExampleDrawing extends modularTHREE.Drawing {
   }
 
   initCubeAnimation() {
-    this.cubeTimeline = new TimelineLite();
+    this.cubeTimeline = new TimelineLite({ paused: true });
 
     const cubeFallTween = TweenLite.to(this.cube.position, 3.5, {
       y: -20,
@@ -70,5 +71,32 @@ export class ExampleDrawing extends modularTHREE.Drawing {
     //add the rotation tween at time 0 so that falling and rotating
     //happen simultaneously
     this.cubeTimeline.add(cubeRotateTween, 0);
+  }
+
+  initCubeGUI() {
+      //Prevent multiple copies of the gui being created (e.g. on window resize)
+    if (this.gui) return;
+
+    this.gui = new dat.GUI();
+
+    const opts = {
+      play: () => {
+        this.cubeTimeline.play();
+      },
+      stop: () => {
+        this.cubeTimeline.stop();
+      },
+      reset: () => {
+        this.cubeTimeline.progress(0);
+      },
+      reverse: () => {
+        this.cubeTimeline.reverse();
+      },
+    };
+
+    this.gui.add(opts, 'play');
+    this.gui.add(opts, 'stop');
+    this.gui.add(opts, 'reset');
+    this.gui.add(opts, 'reverse');
   }
 }

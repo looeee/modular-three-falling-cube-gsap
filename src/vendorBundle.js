@@ -43,5 +43,5 @@ import 'gsap/src/uncompressed/easing/EasePack';
 import Stats from 'three/examples/js/libs/stats.min';
 window.Stats = Stats;
 
-// import dat from 'dat-gui';
-// window.dat = dat;
+import dat from 'dat-gui';
+window.dat = dat;
