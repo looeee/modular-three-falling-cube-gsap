@@ -1,0 +1,54 @@
+{
+  "name": "modular-three-falling-cube-gsap",
+  "version": "0.1.0",
+  "description": "ModularTHREE Demo - Falling Cube with GSAP",
+  "main": "Gulpfile.babel.js",
+  "author": {
+    "name": "Lewy Blue",
+    "email": "looeee@gmail.com",
+    "url": ""
+  },
+  "dependencies": {
+    "dat-gui": "^0.5.0",
+    "gsap": "^1.19.0",
+    "modular-three": "^0.1.4",
+    "three": "^0.81.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015-loose-rollup": "^7.0.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^6.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.1.1",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "rollup": "^0.34.10",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^3.3.1",
+    "rollup-plugin-filesize": "^0.4.4",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/looeee/modular-three-falling-cube-gsap.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/looeee/modular-three-falling-cube-gsap/issues"
+  },
+  "homepage": "https://github.com/looeee/modular-three-falling-cube-gsap#readme",
+  "keywords": [
+    "three.js",
+    "boilerplate",
+    "webgl",
+    "es2015",
+    "es6"
+  ]
+}
