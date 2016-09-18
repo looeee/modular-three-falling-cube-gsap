@@ -13,15 +13,15 @@ const rendererSpec = {
   height: () => window.innerHeight,
   pixelRatio: window.devicePixelRatio,
   postprocessing: false,
-  useGSAP: true,
+  useGSAP: false,
   showStats: true,
 };
 
 // Optional
 const cameraSpec = {
   type: 'PerspectiveCamera', //Or 'OrthographicCamera'
-  near: 10,
-  far: -10,
+  near: 1,
+  far: 1000,
   position: new THREE.Vector3(0, 0, 100),
   //PerspectiveCamera only
   fov: 45,
@@ -74,7 +74,7 @@ export class ExampleDrawing extends modularTHREE.Drawing {
   }
 
   initCubeGUI() {
-      //Prevent multiple copies of the gui being created (e.g. on window resize)
+    //Prevent multiple copies of the gui being created (e.g. on window resize)
     if (this.gui) return;
 
     this.gui = new dat.GUI();
